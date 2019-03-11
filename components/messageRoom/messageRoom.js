@@ -18,9 +18,8 @@ class MessageRoom extends Component {
 	};
 
 	onSubmit = e => {
+		e.preventDefault();
 		if (this.state.message) {
-			e.preventDefault();
-
 			const text = {
 				message: this.state.message,
 				owner: 0,
