@@ -33,6 +33,10 @@ const StyledChats = styled.div`
 	}
 
 	@media (max-width: 815px) {
+		display: grid;
+		grid-template-columns: 300px;
+		grid-template-rows: 100px;
+
 		.toggle_btn {
 			width: 40px;
 			height: 40px;
