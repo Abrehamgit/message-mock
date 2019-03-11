@@ -16,12 +16,15 @@ const StyledForm = styled.div`
 	
 
 	form{
-		width: 100%;
 		padding-top: 0.5rem;
 		display: grid;
 		grid-gap: 15px;
-		grid-template-columns: 4fr 1fr;
+		grid-template-columns: 4fr 1fr ;
+		
+		 @media(max-width: 375px){
+					grid-template-columns: 1fr ;
 
+		}
 	}
 
 	input {
