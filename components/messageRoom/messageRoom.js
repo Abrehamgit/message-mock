@@ -12,6 +12,14 @@ class MessageRoom extends Component {
 		message: ''
 	};
 
+	componentDidMount() {
+		this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
+	}
+
+	componentDidUpdate() {
+		this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
+	}
+
 	handleChange = e => {
 		const message = e.target.value;
 		this.setState({ message });
@@ -33,7 +41,7 @@ class MessageRoom extends Component {
 	render() {
 		return (
 			<StyledForm>
-				<div className="messages">
+				<div className="messages" ref="mes">
 					{this.state.convo.map(text => (
 						<SingleMessage text={text} key={text.date} />
 					))}
