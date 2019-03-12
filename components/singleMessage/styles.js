@@ -14,7 +14,7 @@ const StyledMessage = styled.div`
 		line-height: 22px;
 		font-size: 12px;
 		border-radius: 6px;
-		padding: 17px 15px 17px 15px;
+		padding: 10px 15px 10px 15px;
 		background-color: ${props =>
 			props.owner === 0 ? props.theme.lightBlue : props.theme.lightGray};
 	}
