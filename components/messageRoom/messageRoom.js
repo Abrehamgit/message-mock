@@ -7,14 +7,23 @@ import StyledForm from './styles';
 import moment from 'moment';
 
 class MessageRoom extends Component {
-	state = {
-		convo,
-		message: ''
-	};
+	constructor() {
+		super();
+		this.state = {
+			convo,
+			message: ''
+		};
+
+		this.mesRef = React.createRef();
+	}
 
 	componentDidMount() {
-		this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
+		this.scrollToBottom();
 	}
+
+	scrollToBottom = () => {
+		this.mesRef.current.scrollTop = this.mesRef.current.scrollHeight;
+	};
 
 	handleChange = e => {
 		const message = e.target.value;
@@ -30,17 +39,19 @@ class MessageRoom extends Component {
 				date: moment()
 			};
 
-			this.setState({ convo: [...this.state.convo, text], message: '' });
-
-			//scroll to bottom here
-			this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
+			this.setState(
+				{ convo: [...this.state.convo, text], message: '' },
+				() => {
+					this.scrollToBottom();
+				}
+			);
 		}
 	};
 
 	render() {
 		return (
 			<StyledForm>
-				<div className="messages" ref="mes">
+				<div className="messages" ref={this.mesRef}>
 					{this.state.convo.map(text => (
 						<SingleMessage text={text} key={text.date} />
 					))}
