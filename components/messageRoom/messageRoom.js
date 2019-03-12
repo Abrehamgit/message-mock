@@ -16,10 +16,6 @@ class MessageRoom extends Component {
 		this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
 	}
 
-	componentDidUpdate() {
-		this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
-	}
-
 	handleChange = e => {
 		const message = e.target.value;
 		this.setState({ message });
@@ -35,6 +31,9 @@ class MessageRoom extends Component {
 			};
 
 			this.setState({ convo: [...this.state.convo, text], message: '' });
+
+			//scroll to bottom here
+			this.refs.mes.scrollTop = this.refs.mes.scrollHeight;
 		}
 	};
 
